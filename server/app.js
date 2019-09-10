@@ -10,5 +10,5 @@ app.use('/graphql', graphqlHTTP({
     graphiql: true
 }));
 app.listen(PORT, () => {
-    console.log(`Noe listening for request at ${PORT}`)
+    console.log(`Now listening for request at ${PORT}`)
 });
