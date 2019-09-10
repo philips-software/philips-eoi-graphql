@@ -1,4 +1,4 @@
-# scoe-demo 
+# swcoe-demo 
 React Appplication - Software Conference Demo Project
 Pre-requisite to setup demo application
 
@@ -17,17 +17,17 @@ Install latest available version of node-js.
 
 ### Step 3
 Clone/download the code from below repository (master branch).
-[https://github.com/philips-graphql/scoe-demo](https://github.com/philips-graphql/scoe-demo)
+[https://github.com/philips-graphql/swcoe-demo](https://github.com/philips-graphql/swcoe-demo)
 
 ### Step 4
 #### Sample React application setup
-- Navigate to `scoe-demo\client\` directory and run below commands to access application [http://localhost:3000/](http://localhost:3000/)
+- Navigate to `swcoe-demo\client\` directory and run below commands to access application [http://localhost:3000/](http://localhost:3000/)
 	```bash
 	npm install
 	npm start
 	```
 #### Sample Nodejs GraphQL Server
-- Navigate to `scoe-demo\server\` directory and run below commands to access application
+- Navigate to `swcoe-demo\server\` directory and run below commands to access application
 [http://localhost:4004/graphql](http://localhost:4004/graphql)
 	```bash
 	npm install
