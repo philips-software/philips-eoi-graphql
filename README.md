@@ -12,7 +12,7 @@ Pre-requisite to setup demo application
 	* [https://<NAME_OF_YOUR_HEROKU_APP>.herokuapp.com](http://herokuapp.com/)
 	
 ### Step 2
-Install latest available version of node-js. 
+Install latest available version of node-js.
 [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 
 ### Step 3
@@ -26,6 +26,7 @@ Clone/download the code from below repository (master branch).
 	npm install
 	npm start
 	```
+#### Sample Nodejs GraphQL Server
 - Navigate to `scoe-demo\server\` directory and run below commands to access application
 [http://localhost:4004/graphql](http://localhost:4004/graphql)
 	```bash
