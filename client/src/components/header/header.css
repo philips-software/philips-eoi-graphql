@@ -1,0 +1,8 @@
+.navbar{
+    background: #1C2D66 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.navbar-light .navbar-brand {
+    color: #ffffff;
+}
