@@ -1,24 +1,17 @@
 import React, { Component } from 'react';
-import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import Header from './components/header/Header';
-import { GRAPHQL_API_URL, GRAPHQL_ACCESS_KEY } from './config/config';
 import DisplayTable from './components/displayTableContents/DisplayTable';
-import { fetchTableQuery, insertEntryTableQuery, booksCountVsGenere, booksCountVsPerson, fetchGraphdataQueries } from './queries/query';
+import { fetchTableQuery, insertEntryTableQuery, booksCountVsGenere, booksCountVsPerson, fetchGraphdataQueries, subscriptionFetchBookList } from './queries/query';
 import { filterBooksCountVsGenere, filterPersonsCountVsGenere, filterGraphQueriesData } from './filter/filter';
 import { Button } from 'reactstrap'
 import play_btn_logo from './assets/images/play-button.svg';
 import Chart from './charts/Chart';
 import { getRandomColor } from './utility';
 import './App.css';
+import { generateClient } from './utils/generateClient';
 
-const client = new ApolloClient({
-  uri: GRAPHQL_API_URL,
-  headers: {
-    "content-type": "application/json",
-    "x-hasura-access-key": GRAPHQL_ACCESS_KEY
-  }
-});
+const client = generateClient()
 
 class App extends Component {
 
@@ -58,6 +51,16 @@ class App extends Component {
         const filteredResult = filterGraphQueriesData(result);
         this.setState({ ...this.state, graphsData: this.state.graphsData.concat(filteredResult.map((data) => ({ ...data }))) });
       }).catch(e => console.error(e));
+
+    // client.subscribe({
+    //   query: subscriptionFetchBookList
+    // }).subscribe(result => {
+    //   if (result.errors) {
+    //     console.log("Error Occur while fetching the data : ", result.errors)
+    //   } else if (result.data) {
+    //     console.log("Result  : ", result)
+    //   }
+    // })
 
   }
   fetchTableData() {
