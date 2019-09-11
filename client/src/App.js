@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ApolloProvider } from '@apollo/react-hooks';
 import Header from './components/header/Header';
 import DisplayTable from './components/displayTableContents/DisplayTable';
-import { fetchTableQuery, insertEntryTableQuery, booksCountVsGenere, booksCountVsPerson, fetchGraphdataQueries, subscriptionFetchBookList } from './queries/query';
+import { fetchTableQuery, insertEntryTableQuery, booksCountVsGenere, booksCountVsPerson, fetchGraphdataQueries } from './queries/query';
 import { filterBooksCountVsGenere, filterPersonsCountVsGenere, filterGraphQueriesData } from './filter/filter';
 import { Button } from 'reactstrap'
 import play_btn_logo from './assets/images/play-button.svg';
@@ -19,10 +19,26 @@ class App extends Component {
     super(props);
     this.state = {
       tabledata: [],
-      graphsData: []
+      graphsData: [],
+      graphsData: [ 
+        {labels: [], values: [], xlabel: "Genres", title: "Number of books by Genre"},
+        {labels: [], values: [], xlabel: "Persons",  title: "Number of books by Person"}
+      ],
     }
   }
+
+  maxPriceBookSubcription(){
+    // client.subscribe({
+    //   query: maxPriceSuncriptionQuery
+    // }).subscribe((result) => {
+    //    this.setState({...this.state, maxPriceBookDatails: {...result.data.books[0]}})
+    // },
+    // (err) => { console.error(err); }
+    // )
+  }
+
   fetchGraphsData() {
+    this.setState([])
     // client
     // .query({
     //   query: booksCountVsGenere
@@ -42,44 +58,37 @@ class App extends Component {
     //   this.setState({...this.state, graphsData: this.state.graphsData.concat({labels, values, xlabel: "Persons",  title: "Persons V/s Number of books"})});
     // }).catch(e => console.error(e));
 
-    client
-      .query({
-        query: fetchGraphdataQueries,
-        fetchPolicy: 'no-cache'
-      })
-      .then(result => {
-        const filteredResult = filterGraphQueriesData(result);
-        this.setState({ ...this.state, graphsData: this.state.graphsData.concat(filteredResult.map((data) => ({ ...data }))) });
-      }).catch(e => console.error(e));
-
-    // client.subscribe({
-    //   query: subscriptionFetchBookList
-    // }).subscribe(result => {
-    //   if (result.errors) {
-    //     console.log("Error Occur while fetching the data : ", result.errors)
-    //   } else if (result.data) {
-    //     console.log("Result  : ", result)
-    //   }
-    // })
+    // client
+    //   .query({
+    //     query: fetchGraphdataQueries,
+    //     fetchPolicy: 'no-cache'
+    //   })
+    //   .then(result => {
+    //     const filteredResult = filterGraphQueriesData(result);
+    //     this.setState({ ...this.state, graphsData: this.state.graphsData.concat(filteredResult.map((data) => ({ ...data }))) });
+    //   }).catch(e => console.error(e));
 
   }
   fetchTableData() {
     client
       .query({
-        query: fetchTableQuery
+        query: fetchTableQuery,
+        fetchPolicy: 'no-cache'
       })
       .then(result => {
         this.setState({ ...this.state, tabledata: result.data.books });
       }).catch(e => console.error(e));
   }
   componentDidMount() {
+    this.maxPriceBookSubcription()
     // this.fetchTableData();
     this.fetchGraphsData();
   }
   runQuery() {
     client
       .mutate({
-        mutation: insertEntryTableQuery
+        mutation: insertEntryTableQuery,
+        fetchPolicy: 'no-cache'
       })
       .then(() => {
         this.setState({ ...this.state, graphsData: [] });

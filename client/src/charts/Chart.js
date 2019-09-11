@@ -33,7 +33,17 @@ class Chart extends Component{
               position:this.props.legendPosition,
               fontColor: this.props.legendFontColor
             },
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
+            scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero: true
+                  }
+              }],
+              xAxes: [{
+                barPercentage: 0.2
+              }]
+          }
             
           }}
           width={500} height={500}
