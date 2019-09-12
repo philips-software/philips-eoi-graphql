@@ -9,7 +9,7 @@ module.exports = {
         },
         skipSSLValidation: true,
       },
-      includes: [
+      excludes: [
         "src/**/*.{ts,tsx,js,jsx,graphql}"
     ]
     }
