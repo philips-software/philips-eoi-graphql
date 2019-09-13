@@ -42,3 +42,42 @@ Clone/download the code from below repository (master branch).
 	npm start
 	```
 
+#### Additional Instructions following SWCOE session
+- Server Reference : https://sub-test-postgres.herokuapp.com (one can use your own heroku hasura server as well)
+- GraphQL Server Reference Resolver implementation (code walkthrough done during session) updated. Please access it on http://localhost:4004/graphql after Step 5 Part 2.
+	* Below queries can be executed on GraphQL console :
+		Normal Query
+		```
+			{books{
+			  name
+			  id
+			  genre
+			  author {
+				id
+				name
+				age
+			  }
+			}}
+		```
+		Query with Filter
+		```
+			{book (id:2){
+			  name
+			  id
+			  genre
+			  author {
+				id
+				name
+				age
+			  }
+			}}
+		```
+	We can also implement similar resolvers for Mutations.
+- GraphQL Client Reference implementation (used / code walkthrough done during session) updated. Please access it on http://localhost:3000/ after Step 5 Part 1.
+	* Subscription : Highest priced book is subscribed to be shown just below header. One can insert new book with highest price/modify existing book's price via GraphQL Server 	console (data tab) and can see updates on application without need of doing refresh.
+	* Run Query : Refer to app.js "runQuery" method and keep changing methods to play around with different mutation operations, delete(current code - deleteEntryBooksTable @ query.js), insert(insertEntryBooksTableQuery @ query.js), update(updateEntryBooksTable @ query.js), upsert (upsertEntryBooksTable @ query.js) and observe impact on graphs.
+	* Graphs : Number of books  per Genre, Number of books per Person with filters queries (query.js) updated, play around with different filter queries. Refer to sample_queries.txt file updated in this repo for different combinations of queries.
+	
+#### Contact Details
+Please contact if any queries, we will be happy to assist you.
+prashantharao.nv@philips.com
