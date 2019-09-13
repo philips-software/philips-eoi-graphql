@@ -17,7 +17,7 @@ export const filterPersonsCountVsGenere = (result) => {
 
 export const filterGraphQueriesData = (result) => {
     return [
-        { ...filterBooksCountVsGenere(result), xlabel: "Genres", title: "Genres V/s Number of books"},
-        { ...filterPersonsCountVsGenere(result), xlabel: "Persons",  title: "Persons V/s Number of books"}
+        { ...filterBooksCountVsGenere(result), xlabel: "Genres", title: "Number of books per Genre"},
+        { ...filterPersonsCountVsGenere(result), xlabel: "Persons",  title: "Number of books per Person"}
     ]
 }

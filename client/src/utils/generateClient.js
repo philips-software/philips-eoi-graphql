@@ -13,7 +13,7 @@ export const generateClient = () => {
         uri: GRAPHQL_API_URL,
         headers: {
             "content-type": "application/json",
-            "x-hasura-access-key": GRAPHQL_ACCESS_KEY
+            "x-hasura-admin-secret": GRAPHQL_ACCESS_KEY
         },
     });
 
