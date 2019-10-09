@@ -10,6 +10,7 @@ Pre-requisite to setup demo application
 	* [https://heroku.com/deploy?template=https://github.com/hasura/graphql-engine-heroku](https://heroku.com/deploy?template=https://github.com/hasura/graphql-engine-heroku)
 - Access Sample GraphQL Server by accessing below URL.
 	* [https://<NAME_OF_YOUR_HEROKU_APP>.herokuapp.com](http://herokuapp.com/)
+- Follow the instruction in [GraphQL_SoftwareConference.pptx](GraphQL_SoftwareConference.pptx) for configure the GraphQL server.
 	
 ### Step 2
 Install latest available version of node-js.
@@ -17,7 +18,7 @@ Install latest available version of node-js.
 
 ### Step 3
 Clone/download the code from below repository (master branch).
-	[https://github.com/philips-graphql/swcoe-demo](https://github.com/philips-graphql/swcoe-demo)
+	[https://https://github.com/philips-software/philips-eoi-graphql](https://https://github.com/philips-software/philips-eoi-graphql)
 
 ### Step 4
 #### IDE setup
@@ -29,13 +30,14 @@ Clone/download the code from below repository (master branch).
 
 ### Step 5
 #### Sample React application setup
-- Navigate to `swcoe-demo\client\` directory and run below commands to access application [http://localhost:3000/](http://localhost:3000/)
+- Navigate to `.client/` directory and run below commands to access application [http://localhost:3000/](http://localhost:3000/)
 	```bash
 	npm install
 	npm start
 	```
 #### Sample Nodejs GraphQL Server
-- Navigate to `swcoe-demo\server\` directory and run below commands to access application
+This setup replaces the server setup running on Heroku.
+- Navigate to `./server/` directory and run below commands to access application
 [http://localhost:4004/graphql](http://localhost:4004/graphql)
 	```bash
 	npm install
