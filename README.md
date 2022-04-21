@@ -2,6 +2,8 @@
 React Appplication - Software Conference Demo Project
 Pre-requisite to setup demo application
 
+> ⚠️ This project is no longer supported.
+
 ### Step 1
 #### Sample GraphQL Server Sandbox setup
 - Create an account and login to Heroku
